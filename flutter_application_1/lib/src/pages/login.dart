@@ -16,22 +16,37 @@ class LogintState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
             width: 200,
             child: TextFormField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: "Informe o email"),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: Colors.black, width: 1))
+              ),
             ),
           ),
-          Container(
+          Center(
+            child: Stack(
+              children: [
+                Center(child: Container(width: 200, height: 200,decoration: BoxDecoration(color: Colors.red, ), child: Image.network('https://github.com/mrwerton.png'),)),
+                Center(child: Container(width: 100, height: 100, decoration: BoxDecoration(color: Colors.black),))
+              ],
+            ),
+          ),
+          SizedBox(
             width: 200,
             child: TextFormField(
               controller: _passController,
               decoration: InputDecoration(labelText: "Informe sua senha"),
             ),
           ),
-          TextButton(
+          ElevatedButton(
+            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(
+              Colors.black
+            )),
               onPressed: () {
                 String email = _emailController.text;
                 String password = _passController.text;
